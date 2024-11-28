@@ -1,0 +1,39 @@
+:root{
+  --primary:#00a062;
+  --secondary:#efe7e3;
+}
+
+body {
+  margin: 0;
+}
+
+* {
+  font-family: inherit;
+}
+
+@font-face {
+  font-family: Acumin;
+  src: url(assets/fonts/AcuminRegular.woff2);
+}
+
+@font-face {
+  font-family: Louize;
+  src: url(assets/fonts/LouizeRegular.woff2);
+}
+
+.messages-body {
+  overflow: hidden;
+}
+
+p {
+  margin: 0;
+  font-family: Louize, Times, serif;
+}
+
+.testText{
+  font-family: Louize, Times, serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32px;
+  text-align: center;
+}
