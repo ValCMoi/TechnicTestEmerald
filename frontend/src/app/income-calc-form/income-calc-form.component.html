@@ -1,0 +1,82 @@
+<div
+  class="grid grid-nogutter surface-section text-800 bg-form h-30rem bg-secondary"
+>
+  <div
+    class="col-12 md:col-10 lg:col-8 md:col-offset-1 lg:col-offset-2 p-6 align-items-center"
+  >
+    <div class="card justify-content-center">
+      <p-card class="bottom">
+        <ng-template pTemplate="header">
+          <h1 class="p-4">Estimate your efficiency</h1>
+        </ng-template>
+        <ng-template pTemplate="content">
+          <div class="grid">
+            <div class="col-12 md:col-6 lg:col-8">
+              <div class="w-full flex flex-wrap justify-content-center">
+                <div class="flex flex-column flex-wrap p-2">
+                  <label htmlFor="purchasePrice" class="p-2"
+                    >Purchase price</label
+                  >
+                  <p-inputNumber class="w-6" inputId="purchasePrice">
+                  </p-inputNumber>
+                </div>
+                <div class="flex flex-column flex-wrap p-2">
+                  <label htmlFor="monthlyRentAmount" class="p-2"
+                    >Monthly rent amount</label
+                  >
+                  <p-inputNumber class="w-6" inputId="monthlyRentAmount">
+                  </p-inputNumber>
+                </div>
+                <div class="flex flex-column flex-wrap p-2">
+                  <label htmlFor="purchasePrice" class="p-2"
+                    >Purchase price</label
+                  >
+                  <p-inputNumber class="w-6" inputId="purchasePrice">
+                  </p-inputNumber>
+                </div>
+                <div class="flex flex-column flex-wrap p-2">
+                  <label htmlFor="purchasePrice" class="p-2"
+                    >Purchase price</label
+                  >
+                  <p-inputNumber class="w-6" inputId="agencyCommissionFirst">
+                  </p-inputNumber>
+                </div>
+                <div class="flex flex-column flex-wrap p-2">
+                  <label htmlFor="agencyCommissionFirst" class="p-2"
+                    >Agency commission first year</label
+                  >
+                  <p-inputNumber class="w-6" inputId="agencyCommissionSecond">
+                  </p-inputNumber>
+                </div>
+                <div class="flex flex-column flex-wrap p-2">
+                  <label htmlFor="agencyCommissionSecond" class="p-2"
+                    >Agency commission second year</label
+                  >
+                  <p-inputNumber class="w-6" inputId="agencyCommissionFollowingYears">
+                  </p-inputNumber>
+                </div>
+                <div class="flex flex-column flex-wrap p-2">
+                  <label htmlFor="agencyCommissionFollowingYears" class="p-2"
+                    >Agency commission third year</label
+                  >
+                  <p-inputNumber class="w-6" inputId="agencyCommissionFollowingYears">
+                  </p-inputNumber>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 md:col-6 lg:col-4">
+              <p>25000€ net / month</p>
+              <div class="card">
+                <p-chart
+                  type="bar"
+                  [data]="basicData"
+                  [options]="basicOptions"
+                ></p-chart>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </p-card>
+    </div>
+  </div>
+</div>

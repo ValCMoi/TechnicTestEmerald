@@ -1,0 +1,25 @@
+.bg-hero {
+  background-image: url(https://ems2.imgix.net/2250x900/c680924e01/2020_alpe_dhuez.jpg?ixlib=js-2.3.2&auto=format&q=100&w=1920&h=0&fit=crop&s=8a91d48a83d1bda888622a0acd26c56e);
+  background-position:top;
+  background-size: cover;
+  display: flex;
+  mask-image: linear-gradient(to bottom, rgba(0,0,0) 0%,rgba(0,0,0,0.65) 100%);
+
+}
+
+.h1-hero{
+  font-size: 72px;
+  line-height: 80px;
+  letter-spacing: -2px;
+  text-transform: uppercase;
+}
+
+.hero-subtitle{
+  margin-top: 20px;
+}
+
+@media screen and (max-width: 650px) {
+  .h1-hero {
+    font-size: 48px;
+  }
+}
