@@ -1,1 +1,6 @@
-<p>footer works!</p>
+<footer>
+  <app-icone-svg class="logo-footer-size" [path]="'/assets/img/EmeraldStay_logoIcon_green.svg'"></app-icone-svg>
+  <ng-container *ngFor="let group of getFooterLinks() | async">
+    <p class="white">{{group.label}}</p>
+  </ng-container>
+</footer>

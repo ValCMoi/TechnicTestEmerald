@@ -30,10 +30,18 @@ p {
   font-family: Louize, Times, serif;
 }
 
+.white{
+  color: white;
+}
+
 .testText{
   font-family: Louize, Times, serif;
   font-size: 24px;
   font-weight: 400;
   line-height: 32px;
   text-align: center;
+}
+
+.bg-color-primary{
+  background-color: var(--primary);
 }
