@@ -1,5 +1,7 @@
+import { ButtonModule } from 'primeng/button';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,6 +10,10 @@ import { FooterComponent } from './footer/footer.component';
 import { HeroComponent } from './hero/hero.component';
 import { IconeSvgComponent } from './icone/icone-svg/icone-svg.component';
 import { HttpClientModule } from '@angular/common/http';
+import { IncomeCalcFormComponent } from './income-calc-form/income-calc-form.component';
+import { CardModule } from 'primeng/card';
+import { InputNumberModule } from 'primeng/inputnumber';
+import { ChartModule } from 'primeng/chart';
 
 @NgModule({
   declarations: [
@@ -15,12 +21,18 @@ import { HttpClientModule } from '@angular/common/http';
     HeaderComponent,
     FooterComponent,
     HeroComponent,
-    IconeSvgComponent
+    IconeSvgComponent,
+    IncomeCalcFormComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ButtonModule,
+    CardModule,
+    InputNumberModule,
+    ChartModule
   ],
   providers: [],
   bootstrap: [AppComponent]
