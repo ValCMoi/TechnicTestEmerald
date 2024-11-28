@@ -7,6 +7,15 @@
 
 }
 
+.bg-hero::before{
+  content: "";
+  filter: brightness(0.6);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background: inherit;
+}
+
 .h1-hero{
   font-size: 72px;
   line-height: 80px;
