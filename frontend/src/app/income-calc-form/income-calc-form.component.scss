@@ -26,3 +26,10 @@
   }
 }
 
+.p-datatable-header, thead, tr:nth-child(odd) {
+  background: var(--primary-light);
+}
+
+table{
+  background-color: var(--primary-light);
+}
