@@ -13,7 +13,7 @@
           <p-inputNumber
             formControlName="purchasePrice"
             inputId="purchasePrice"
-            [min]="0"
+            [min]="1"
           >
           </p-inputNumber>
         </div>
@@ -91,7 +91,7 @@
           <ng-template pTemplate="body" let-yearResult>
             <tr>
               <td>{{ yearResult.year + 1 }}</td>
-              <td>{{ yearResult.result | number : "1.0-2" }} $</td>
+              <td class="{{yearResult.result | alertColorText}}">{{ yearResult.result | number : "1.0-2" }} $</td>
             </tr>
           </ng-template>
         </p-table>
@@ -113,7 +113,7 @@
           <ng-template pTemplate="body" let-yearResult>
             <tr>
               <td>{{ yearResult.year + 1 }}</td>
-              <td>{{ yearResult.result | number : "1.0-2" }} %</td>
+              <td class="{{yearResult.result | alertColorText}}">{{ yearResult.result | number : "1.0-2" }} %</td>
             </tr>
           </ng-template>
         </p-table>

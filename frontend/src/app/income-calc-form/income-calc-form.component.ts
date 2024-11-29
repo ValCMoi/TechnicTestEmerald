@@ -1,3 +1,4 @@
+import { MessageService } from 'primeng/api';
 import { takeUntil, Subject } from 'rxjs';
 import { FormBuilder, FormControl } from '@angular/forms';
 import { Component, OnInit, inject } from '@angular/core';
@@ -14,7 +15,7 @@ export class IncomeCalcFormComponent implements OnInit {
   private formBuilder = inject(FormBuilder);
 
   form = this.formBuilder.group({
-    purchasePrice: new FormControl(0),
+    purchasePrice: new FormControl(1),
     monthlyRent: new FormControl(0),
     annualRentalFee: new FormControl(0),
     agencyCommissionFirst: new FormControl(30),
@@ -22,7 +23,10 @@ export class IncomeCalcFormComponent implements OnInit {
     agencyCommissionThird: new FormControl(20),
   });
 
-  constructor(private readonly calcService: CalcIncomeService) {}
+  constructor(
+    private readonly calcService: CalcIncomeService,
+    private messageService: MessageService
+  ) {}
 
   products: any[] = [];
 
@@ -45,16 +49,25 @@ export class IncomeCalcFormComponent implements OnInit {
           }
         );
 
-        this.calcAllNetEfficiency = this.calcService.calcAllNetEfficiency({
-          purchasePrice:res.purchasePrice ?? 0,
-          monthlyRent: res.monthlyRent ?? 0,
-          monthlyRentalFee: (res.annualRentalFee ?? 0) / 12,
-          agencyCommissions: [
-            res.agencyCommissionFirst ?? 0,
-            res.agencyCommissionSecond ?? 0,
-            res.agencyCommissionThird ?? 0
-          ]
-        });
+        let resultEfficiency: YearResult[] = [];
+
+        if (res.purchasePrice) {
+          this.calcService.calcAllNetEfficiency({
+            purchasePrice: res.purchasePrice ?? 1,
+            monthlyRent: res.monthlyRent ?? 0,
+            monthlyRentalFee: (res.annualRentalFee ?? 0) / 12,
+            agencyCommissions: [
+              res.agencyCommissionFirst ?? 0,
+              res.agencyCommissionSecond ?? 0,
+              res.agencyCommissionThird ?? 0,
+            ],
+          });
+        } else {
+          resultEfficiency = [];
+          this.messageService.add({severity:'error', summary:'Error', detail:'All value must be set by a number, and the purchase must be set'})
+        }
+
+        this.calcAllNetEfficiency = resultEfficiency;
       });
   }
 }

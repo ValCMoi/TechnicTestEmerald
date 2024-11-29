@@ -1,3 +1,4 @@
+import { MessageService } from 'primeng/api';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { NgModule } from '@angular/core';
@@ -7,7 +8,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
 import { HeroComponent } from './hero/hero.component';
 import { IconeSvgComponent } from './icone/icone-svg/icone-svg.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -17,15 +17,18 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { ChartModule } from 'primeng/chart';
 import { TableModule } from 'primeng/table';
 import { DividerModule } from 'primeng/divider';
+import { ToastModule } from 'primeng/toast';
+
+import { AlertColorTextPipe } from './core/pipes/alert-color-text/alert-color-text.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent,
     HeroComponent,
     IconeSvgComponent,
-    IncomeCalcFormComponent
+    IncomeCalcFormComponent,
+    AlertColorTextPipe
   ],
   imports: [
     BrowserModule,
@@ -38,9 +41,10 @@ import { DividerModule } from 'primeng/divider';
     ChartModule,
     ReactiveFormsModule,
     TableModule,
-    DividerModule
+    DividerModule,
+    ToastModule
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
