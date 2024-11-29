@@ -1,40 +1,55 @@
-<footer class="h-10 w-full p-5">
+<footer class="w-full p-5">
   <div class="footerContainer m-auto grid">
     <app-icone-svg
-      class="logoFooter col"
+      class="logoFooter"
       [path]="'/assets/img/EmeraldStay_logoIcon_green.svg'"
     ></app-icone-svg>
-    <div class="col p-1">
+    <div class="containerLink">
       <h2 class="white upper">
         {{ footerLinks[0].label }}
       </h2>
-      <ul class="listFirstGroup">
+      <ul class="listGroup">
         <li *ngFor="let link of footerLinks[0].links">
-          <a class="white" href="{{ link.url }}">{{ link.label }}</a>
+          <a class="white" href="https://{{ link.url }}">{{ link.label }}</a>
         </li>
       </ul>
     </div>
-    <div class="flex flex-column">
-      <div class="p-1">
-        <h2 class="white upper">{{ footerLinks[1].label }}</h2>
-        <ul class="tmpCol1">
-          <li *ngFor="let link of footerLinks[1].links">
-            <a class="white" href="{{ link.url }}">{{ link.label }}</a>
-          </li>
-        </ul>
-        <h2 class="white upper">{{ footerLinks[2].label }}</h2>
-        <ul class="tmpCol1">
-          <li *ngFor="let link of footerLinks[2].links">
-            <a class="white" href="{{ link.url }}">{{ link.label }}</a>
-          </li>
-        </ul>
-      </div>
-      <div class="p-1">
-        <h2 class="white upper">{{ footerLinks[3].label }}</h2>
-        <li *ngFor="let link of footerLinks[3].links">
-          <a class="white" href="{{ link.url }}">{{ link.label }}</a>
+    <div class="containerLink">
+      <h2 class="white upper">
+        {{ footerLinks[1].label }}
+      </h2>
+      <ul class="listGroupSecond">
+        <li *ngFor="let link of footerLinks[1].links">
+          <a class="white" href="https://{{ link.url }}">{{ link.label }}</a>
         </li>
-      </div>
+      </ul>
+      <h2 class="white upper">
+        {{ footerLinks[2].label }}
+      </h2>
+      <ul class="listGroupSecond">
+        <li *ngFor="let link of footerLinks[2].links">
+          <a class="white" href="https://{{ link.url }}">{{ link.label }}</a>
+        </li>
+      </ul>
     </div>
+    <div class="containerLink">
+      <h2 class="white upper">
+        {{ footerLinks[3].label }}
+      </h2>
+      <ul class="listGroupSecond">
+        <li *ngFor="let link of footerLinks[3].links">
+          <a class="white" href="https://{{ link.url }}">{{ link.label }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="social w-full white">
+    <p>Follow us</p>
+    <a href="https://www.linkedin.com/in/%F0%9F%91%A8%E2%80%8D%F0%9F%92%BBvalentin-rouxel%F0%9F%92%BE-b81b0b194/">
+      <i class="pi pi-linkedin m-2" style="font-size: 2rem"></i>
+    </a>
+    <a href="https://www.instagram.com/emeraldstay">
+      <i class="pi pi-instagram m-2" style="font-size: 2rem"></i>
+    </a>
   </div>
 </footer>

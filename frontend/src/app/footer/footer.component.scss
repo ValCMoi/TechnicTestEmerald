@@ -1,6 +1,6 @@
 footer {
-  height: fit-content;
   background: black;
+  position: relative;
 }
 
 .logoFooter {
@@ -12,6 +12,8 @@ footer {
 
 .footerContainer {
   max-width: 1440px;
+  display: grid;
+  grid-template-columns: 2fr 4fr 2fr 2fr;
 }
 
 .listFirstGroup {
@@ -19,12 +21,52 @@ footer {
   grid-template-columns: 1fr 1fr;
 }
 
-.tmpCol1{
+.tmpCol1 {
   display: grid;
   grid-template-columns: 1fr;
 }
 
+.listGroup {
+  display: flex;
+  flex-flow: column;
+  flex-wrap: wrap;
+  max-height: 50%;
+  height: min-content;
+}
+
+.social{
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  align-items: center;
+  font-size: 1.5rem;
+}
+
 @media screen and (max-width: 650px) {
 
+  .logoFooter {
+    margin: auto;
+  }
 
+  .footerContainer {
+    grid-template-columns: auto;
+  }
+
+  .listGroup{
+    display: grid;
+  }
+
+  .containerLink{
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .social{
+    position: absolute;
+    bottom: 0%;
+  }
 }
