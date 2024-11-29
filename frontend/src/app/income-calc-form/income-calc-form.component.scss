@@ -1,6 +1,16 @@
-::host{
-  .p-inputtext .p-component .p-element .p-inputnumber-input{
+:host {
+  .p-inputtext .p-component .p-element .p-inputnumber-input {
     width: 100%;
   }
+}
 
+.max-w-900 {
+  max-width: 900px;
+}
+
+.custom {
+  justify-content: center;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
 }

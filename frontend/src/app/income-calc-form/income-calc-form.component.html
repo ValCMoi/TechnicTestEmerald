@@ -2,7 +2,7 @@
   class="grid grid-nogutter surface-section text-800 bg-form h-30rem bg-secondary"
 >
   <div
-    class="col-12 md:col-10 lg:col-8 md:col-offset-1 lg:col-offset-2 p-6 align-items-center"
+    class="col-12 md:col-10 lg:col-8 md:col-offset-1 lg:col-offset-2 p-4 md:p-6 align-items-center"
   >
     <div class="card justify-content-center">
       <p-card class="bottom">
@@ -10,68 +10,52 @@
           <h1 class="p-4">Estimate your efficiency</h1>
         </ng-template>
         <ng-template pTemplate="content">
-          <div class="grid">
-            <div class="col-12 md:col-6 lg:col-8">
-              <div class="w-full flex flex-wrap justify-content-center">
-                <div class="flex flex-column flex-wrap p-2">
-                  <label htmlFor="purchasePrice" class="p-2"
-                    >Purchase price</label
-                  >
-                  <p-inputNumber class="w-6" inputId="purchasePrice">
-                  </p-inputNumber>
-                </div>
-                <div class="flex flex-column flex-wrap p-2">
-                  <label htmlFor="monthlyRentAmount" class="p-2"
-                    >Monthly rent amount</label
-                  >
-                  <p-inputNumber class="w-6" inputId="monthlyRentAmount">
-                  </p-inputNumber>
-                </div>
-                <div class="flex flex-column flex-wrap p-2">
-                  <label htmlFor="purchasePrice" class="p-2"
-                    >Purchase price</label
-                  >
-                  <p-inputNumber class="w-6" inputId="purchasePrice">
-                  </p-inputNumber>
-                </div>
-                <div class="flex flex-column flex-wrap p-2">
-                  <label htmlFor="purchasePrice" class="p-2"
-                    >Purchase price</label
-                  >
-                  <p-inputNumber class="w-6" inputId="agencyCommissionFirst">
-                  </p-inputNumber>
-                </div>
-                <div class="flex flex-column flex-wrap p-2">
-                  <label htmlFor="agencyCommissionFirst" class="p-2"
-                    >Agency commission first year</label
-                  >
-                  <p-inputNumber class="w-6" inputId="agencyCommissionSecond">
-                  </p-inputNumber>
-                </div>
-                <div class="flex flex-column flex-wrap p-2">
-                  <label htmlFor="agencyCommissionSecond" class="p-2"
-                    >Agency commission second year</label
-                  >
-                  <p-inputNumber class="w-6" inputId="agencyCommissionFollowingYears">
-                  </p-inputNumber>
-                </div>
-                <div class="flex flex-column flex-wrap p-2">
-                  <label htmlFor="agencyCommissionFollowingYears" class="p-2"
-                    >Agency commission third year</label
-                  >
-                  <p-inputNumber class="w-6" inputId="agencyCommissionFollowingYears">
-                  </p-inputNumber>
-                </div>
+          <div class="custom">
+            <div class="flex flex-wrap justify-content-center max-w-900">
+              <div class="flex flex-column flex-wrap p-2">
+                <label htmlFor="purchasePrice" class="p-2"
+                  >Purchase price</label
+                >
+                <p-inputNumber inputId="purchasePrice"> </p-inputNumber>
+              </div>
+
+              <div class="flex flex-column flex-wrap p-2">
+                <label htmlFor="monthlyRent" class="p-2">Monthly rent</label>
+                <p-inputNumber inputId="monthlyRent"> </p-inputNumber>
+              </div>
+
+              <div class="flex flex-column flex-wrap p-2">
+                <label htmlFor="annualRentalFee" class="p-2"
+                  >Annual rental fee</label
+                >
+                <p-inputNumber inputId="annualRentalFee"> </p-inputNumber>
+              </div>
+
+              <div class="flex flex-column flex-wrap p-2">
+                <label htmlFor="commissionFirst" class="p-2"
+                  >Agency commission 1th year</label
+                >
+                <p-inputNumber inputId="commissionFirst"> </p-inputNumber>
+              </div>
+
+              <div class="flex flex-column flex-wrap p-2">
+                <label htmlFor="commissionSecond" class="p-2"
+                  >Agency commission 2nd year</label
+                >
+                <p-inputNumber inputId="commissionSecond"> </p-inputNumber>
+              </div>
+
+              <div class="flex flex-column flex-wrap p-2">
+                <label htmlFor="commissionThird" class="p-2"
+                  >Agency commission 3rd year</label
+                >
+                <p-inputNumber inputId="commissionThird"> </p-inputNumber>
               </div>
             </div>
-            <div class="col-12 md:col-6 lg:col-4">
-              <p>25000€ net / month</p>
+
+            <div class="h-30rem w-full md:w-8 align-content-center">
               <div class="card">
-                <p-chart
-                  type="bar"
-                  [data]="basicData"
-                  [options]="basicOptions"
-                ></p-chart>
+                <p-chart type="bar" [data]="data" [options]="options"></p-chart>
               </div>
             </div>
           </div>
