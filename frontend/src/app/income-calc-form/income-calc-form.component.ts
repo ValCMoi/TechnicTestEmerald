@@ -52,7 +52,7 @@ export class IncomeCalcFormComponent implements OnInit {
         let resultEfficiency: YearResult[] = [];
 
         if (res.purchasePrice) {
-          this.calcService.calcAllNetEfficiency({
+          resultEfficiency = this.calcService.calcAllNetEfficiency({
             purchasePrice: res.purchasePrice ?? 1,
             monthlyRent: res.monthlyRent ?? 0,
             monthlyRentalFee: (res.annualRentalFee ?? 0) / 12,
