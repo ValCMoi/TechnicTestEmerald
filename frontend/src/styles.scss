@@ -4,7 +4,7 @@
 }
 
 * {
-  font-family: inherit;
+  font-family: Louize, Times, serif;
 }
 
 @import "primeicons/primeicons.css";
@@ -31,7 +31,6 @@ h2,
 h3,
 h4 {
   margin: 0;
-  font-family: Louize, Times, serif;
   font-weight: 400;
 }
 
@@ -53,4 +52,8 @@ h4 {
 span > .p-inputtext:enabled:focus, span > .p-inputtext:hover{
   border-color: var(--primary) !important;
   box-shadow: 0 0 0 0.05rem var(--primary) !important;
+}
+
+.ruby{
+  display: ruby;
 }

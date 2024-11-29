@@ -1,3 +1,4 @@
+import { ReactiveFormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -14,6 +15,8 @@ import { IncomeCalcFormComponent } from './income-calc-form/income-calc-form.com
 import { CardModule } from 'primeng/card';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { ChartModule } from 'primeng/chart';
+import { TableModule } from 'primeng/table';
+import { DividerModule } from 'primeng/divider';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,10 @@ import { ChartModule } from 'primeng/chart';
     ButtonModule,
     CardModule,
     InputNumberModule,
-    ChartModule
+    ChartModule,
+    ReactiveFormsModule,
+    TableModule,
+    DividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

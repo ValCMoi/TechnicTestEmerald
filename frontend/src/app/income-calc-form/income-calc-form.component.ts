@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { takeUntil, Subject } from 'rxjs';
+import { FormBuilder, FormControl } from '@angular/forms';
+import { Component, OnInit, inject } from '@angular/core';
+import { CalcIncomeService } from '../core/services/calc/calc-income/calc-income.service';
+import { YearResult } from '../core/models/calc-format';
 
 @Component({
   selector: 'app-income-calc-form',
@@ -6,68 +10,51 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./income-calc-form.component.scss'],
 })
 export class IncomeCalcFormComponent implements OnInit {
-  data: any;
+  private unsubscribe$: Subject<void> = new Subject();
+  private formBuilder = inject(FormBuilder);
 
-  options: any;
+  form = this.formBuilder.group({
+    purchasePrice: new FormControl(0),
+    monthlyRent: new FormControl(0),
+    annualRentalFee: new FormControl(0),
+    agencyCommissionFirst: new FormControl(30),
+    agencyCommissionSecond: new FormControl(25),
+    agencyCommissionThird: new FormControl(20),
+  });
+
+  constructor(private readonly calcService: CalcIncomeService) {}
+
+  products: any[] = [];
+
+  calcAllNetMensualIncome: YearResult[] = [];
+  calcAllNetEfficiency: YearResult[] = [];
 
   ngOnInit() {
-      const documentStyle = getComputedStyle(document.documentElement);
-      const textColor = documentStyle.getPropertyValue('--text-color');
-      const textColorSecondary = documentStyle.getPropertyValue('--text-color-secondary');
-      const surfaceBorder = documentStyle.getPropertyValue('--surface-border');
-
-      this.data = {
-          labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-          datasets: [
-              {
-                  label: 'My First dataset',
-                  backgroundColor: documentStyle.getPropertyValue('--blue-500'),
-                  borderColor: documentStyle.getPropertyValue('--blue-500'),
-                  data: [65, 59, 80, 81, 56, 55, 40]
-              },
-              {
-                  label: 'My Second dataset',
-                  backgroundColor: documentStyle.getPropertyValue('--pink-500'),
-                  borderColor: documentStyle.getPropertyValue('--pink-500'),
-                  data: [28, 48, 40, 19, 86, 27, 90]
-              }
-          ]
-      };
-
-      this.options = {
-          maintainAspectRatio: false,
-          aspectRatio: 0.8,
-          plugins: {
-              legend: {
-                  labels: {
-                      color: textColor
-                  }
-              }
-          },
-          scales: {
-              x: {
-                  ticks: {
-                      color: textColorSecondary,
-                      font: {
-                          weight: 500
-                      }
-                  },
-                  grid: {
-                      color: surfaceBorder,
-                      drawBorder: false
-                  }
-              },
-              y: {
-                  ticks: {
-                      color: textColorSecondary
-                  },
-                  grid: {
-                      color: surfaceBorder,
-                      drawBorder: false
-                  }
-              }
-
+    this.form.valueChanges
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe((res) => {
+        this.calcAllNetMensualIncome = this.calcService.calcNetMensualIncomeAll(
+          {
+            monthlyRent: res.monthlyRent ?? 0,
+            monthlyRentalFee: (res.annualRentalFee ?? 0) / 12,
+            agencyCommissions: [
+              res.agencyCommissionFirst ?? 0,
+              res.agencyCommissionSecond ?? 0,
+              res.agencyCommissionThird ?? 0,
+            ],
           }
-      };
+        );
+
+        this.calcAllNetEfficiency = this.calcService.calcAllNetEfficiency({
+          purchasePrice:res.purchasePrice ?? 0,
+          monthlyRent: res.monthlyRent ?? 0,
+          monthlyRentalFee: (res.annualRentalFee ?? 0) / 12,
+          agencyCommissions: [
+            res.agencyCommissionFirst ?? 0,
+            res.agencyCommissionSecond ?? 0,
+            res.agencyCommissionThird ?? 0
+          ]
+        });
+      });
   }
 }

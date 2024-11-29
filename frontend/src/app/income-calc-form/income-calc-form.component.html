@@ -1,66 +1,115 @@
 <div
-  class="grid grid-nogutter surface-section text-800 bg-form h-30rem bg-secondary"
+  class="grid grid-nogutter surface-section text-800 bg-form bg-secondary h-full"
 >
   <div
     class="col-12 md:col-10 lg:col-8 md:col-offset-1 lg:col-offset-2 p-4 md:p-6 align-items-center"
   >
-    <div class="card justify-content-center">
-      <p-card class="bottom">
-        <ng-template pTemplate="header">
-          <h1 class="p-4">Estimate your efficiency</h1>
-        </ng-template>
-        <ng-template pTemplate="content">
-          <div class="custom">
-            <div class="flex flex-wrap justify-content-center max-w-900">
-              <div class="flex flex-column flex-wrap p-2">
-                <label htmlFor="purchasePrice" class="p-2"
-                  >Purchase price</label
-                >
-                <p-inputNumber inputId="purchasePrice"> </p-inputNumber>
-              </div>
+    <div class="justify-content-center">
+      <h1 class="p-4">Estimate your efficiency</h1>
 
-              <div class="flex flex-column flex-wrap p-2">
-                <label htmlFor="monthlyRent" class="p-2">Monthly rent</label>
-                <p-inputNumber inputId="monthlyRent"> </p-inputNumber>
-              </div>
+      <form [formGroup]="form" class="custom-form-structure">
+        <div class="flex flex-column flex-wrap p-2">
+          <label htmlFor="purchasePrice" class="p-2">Purchase price</label>
+          <p-inputNumber
+            formControlName="purchasePrice"
+            inputId="purchasePrice"
+            [min]="0"
+          >
+          </p-inputNumber>
+        </div>
 
-              <div class="flex flex-column flex-wrap p-2">
-                <label htmlFor="annualRentalFee" class="p-2"
-                  >Annual rental fee</label
-                >
-                <p-inputNumber inputId="annualRentalFee"> </p-inputNumber>
-              </div>
+        <div class="flex flex-column flex-wrap p-2">
+          <label htmlFor="monthlyRent" class="p-2">Monthly rent</label>
+          <p-inputNumber
+            formControlName="monthlyRent"
+            inputId="monthlyRent"
+            [min]="0"
+          >
+          </p-inputNumber>
+        </div>
 
-              <div class="flex flex-column flex-wrap p-2">
-                <label htmlFor="commissionFirst" class="p-2"
-                  >Agency commission 1th year</label
-                >
-                <p-inputNumber inputId="commissionFirst"> </p-inputNumber>
-              </div>
+        <div class="flex flex-column flex-wrap p-2">
+          <label htmlFor="annualRentalFee" class="p-2">Annual rental fee</label>
+          <p-inputNumber
+            formControlName="annualRentalFee"
+            inputId="annualRentalFee"
+            [min]="0"
+          >
+          </p-inputNumber>
+        </div>
 
-              <div class="flex flex-column flex-wrap p-2">
-                <label htmlFor="commissionSecond" class="p-2"
-                  >Agency commission 2nd year</label
-                >
-                <p-inputNumber inputId="commissionSecond"> </p-inputNumber>
-              </div>
+        <div class="flex flex-column flex-wrap p-2">
+          <label htmlFor="commissionFirst" class="p-2"
+            >Agency commission 1th year</label
+          >
+          <p-inputNumber
+            formControlName="agencyCommissionFirst"
+            inputId="commissionFirst"
+            [min]="0"
+          >
+          </p-inputNumber>
+        </div>
 
-              <div class="flex flex-column flex-wrap p-2">
-                <label htmlFor="commissionThird" class="p-2"
-                  >Agency commission 3rd year</label
-                >
-                <p-inputNumber inputId="commissionThird"> </p-inputNumber>
-              </div>
-            </div>
+        <div class="flex flex-column flex-wrap p-2">
+          <label htmlFor="commissionSecond" class="p-2"
+            >Agency commission 2nd year</label
+          >
+          <p-inputNumber
+            formControlName="agencyCommissionSecond"
+            inputId="commissionSecond"
+            [min]="0"
+          >
+          </p-inputNumber>
+        </div>
 
-            <div class="h-30rem w-full md:w-8 align-content-center">
-              <div class="card">
-                <p-chart type="bar" [data]="data" [options]="options"></p-chart>
-              </div>
-            </div>
-          </div>
-        </ng-template>
-      </p-card>
+        <div class="flex flex-column flex-wrap p-2">
+          <label htmlFor="commissionThird" class="p-2"
+            >Agency commission 3rd year</label
+          >
+          <p-inputNumber
+            formControlName="agencyCommissionThird"
+            inputId="commissionThird"
+            [min]="0"
+          >
+          </p-inputNumber>
+        </div>
+      </form>
+
+      <div class="h-30rem w-full align-content-center m-auto">
+        <p-table appendTo="body" [value]="calcAllNetMensualIncome">
+          <ng-template pTemplate="caption"> Net mensual income</ng-template>
+          <ng-template pTemplate="header">
+            <tr>
+              <th>year</th>
+              <th>value</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-yearResult>
+            <tr>
+              <td>{{ yearResult.year + 1 }}</td>
+              <td>{{ yearResult.result | number : "1.0-2" }}</td>
+            </tr>
+          </ng-template>
+        </p-table>
+
+        <p-divider type="solid"></p-divider>
+
+        <p-table appendTo="body" [value]="calcAllNetEfficiency">
+          <ng-template pTemplate="caption"> Net efficiency</ng-template>
+          <ng-template pTemplate="header">
+            <tr>
+              <th>year</th>
+              <th>value</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-yearResult>
+            <tr>
+              <td>{{ yearResult.year + 1 }}</td>
+              <td>{{ yearResult.result | number : "1.0-2" }}</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
     </div>
   </div>
 </div>

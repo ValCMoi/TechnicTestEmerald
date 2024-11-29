@@ -8,9 +8,21 @@
   max-width: 900px;
 }
 
-.custom {
-  justify-content: center;
-  display: flex;
-  flex-flow: column;
-  align-items: center;
+.custom-form-structure {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  place-self: center;
 }
+
+@media screen and (max-width: 650px) {
+  .custom-form-structure {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .custom-form-structure {
+    grid-template-columns: 1fr;
+  }
+}
+
