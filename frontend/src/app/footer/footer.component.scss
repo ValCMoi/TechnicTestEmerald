@@ -1,0 +1,30 @@
+footer {
+  height: fit-content;
+  background: black;
+}
+
+.logoFooter {
+  background-color: var(--primary);
+  height: 100px;
+  width: 100px;
+  display: block;
+}
+
+.footerContainer {
+  max-width: 1440px;
+}
+
+.listFirstGroup {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.tmpCol1{
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+@media screen and (max-width: 650px) {
+
+
+}

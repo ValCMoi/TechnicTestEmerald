@@ -1,0 +1,40 @@
+<footer class="h-10 w-full p-5">
+  <div class="footerContainer m-auto grid">
+    <app-icone-svg
+      class="logoFooter col"
+      [path]="'/assets/img/EmeraldStay_logoIcon_green.svg'"
+    ></app-icone-svg>
+    <div class="col p-1">
+      <h2 class="white upper">
+        {{ footerLinks[0].label }}
+      </h2>
+      <ul class="listFirstGroup">
+        <li *ngFor="let link of footerLinks[0].links">
+          <a class="white" href="{{ link.url }}">{{ link.label }}</a>
+        </li>
+      </ul>
+    </div>
+    <div class="flex flex-column">
+      <div class="p-1">
+        <h2 class="white upper">{{ footerLinks[1].label }}</h2>
+        <ul class="tmpCol1">
+          <li *ngFor="let link of footerLinks[1].links">
+            <a class="white" href="{{ link.url }}">{{ link.label }}</a>
+          </li>
+        </ul>
+        <h2 class="white upper">{{ footerLinks[2].label }}</h2>
+        <ul class="tmpCol1">
+          <li *ngFor="let link of footerLinks[2].links">
+            <a class="white" href="{{ link.url }}">{{ link.label }}</a>
+          </li>
+        </ul>
+      </div>
+      <div class="p-1">
+        <h2 class="white upper">{{ footerLinks[3].label }}</h2>
+        <li *ngFor="let link of footerLinks[3].links">
+          <a class="white" href="{{ link.url }}">{{ link.label }}</a>
+        </li>
+      </div>
+    </div>
+  </div>
+</footer>

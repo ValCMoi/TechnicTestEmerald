@@ -20,6 +20,7 @@ import { DividerModule } from 'primeng/divider';
 import { ToastModule } from 'primeng/toast';
 
 import { AlertColorTextPipe } from './core/pipes/alert-color-text/alert-color-text.pipe';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { AlertColorTextPipe } from './core/pipes/alert-color-text/alert-color-te
     HeroComponent,
     IconeSvgComponent,
     IncomeCalcFormComponent,
-    AlertColorTextPipe
+    AlertColorTextPipe,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
