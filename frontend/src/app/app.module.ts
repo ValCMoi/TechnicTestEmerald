@@ -18,7 +18,7 @@ import { ChartModule } from 'primeng/chart';
 import { TableModule } from 'primeng/table';
 import { DividerModule } from 'primeng/divider';
 import { ToastModule } from 'primeng/toast';
-
+import { SidebarModule } from 'primeng/sidebar';
 import { AlertColorTextPipe } from './core/pipes/alert-color-text/alert-color-text.pipe';
 import { FooterComponent } from './footer/footer.component';
 
@@ -44,7 +44,8 @@ import { FooterComponent } from './footer/footer.component';
     ReactiveFormsModule,
     TableModule,
     DividerModule,
-    ToastModule
+    ToastModule,
+    SidebarModule
   ],
   providers: [MessageService],
   bootstrap: [AppComponent]

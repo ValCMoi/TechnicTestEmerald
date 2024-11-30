@@ -1,5 +1,46 @@
 <div class="h-4rem">
   <div class="bg-secondary header-container">
-    <app-icone-svg class="ml-4 logo-header" [path]="'/assets/img/EmeraldStay_Logotype_Horiz_Green_RGB.svg'"></app-icone-svg>
+    <app-icone-svg
+      class="ml-4 logo-header"
+      [path]="'/assets/img/EmeraldStay_Logotype_Horiz_Green_RGB.svg'"
+    ></app-icone-svg>
+    <p-button
+      (click)="sidebarVisible = true"
+      class="mr-2"
+      severity="success"
+      icon="pi pi-align-justify"
+    >
+    </p-button>
   </div>
 </div>
+<p-sidebar [(visible)]="sidebarVisible" position="right" >
+    <app-icone-svg
+    class="ml-4 logo-header h-4rem"
+    [path]="'/assets/img/EmeraldStay_Logotype_Horiz_Green_RGB.svg'"
+  ></app-icone-svg>
+  <ul class="newSizeFont">
+    <li class="m-1">
+      <a href="https://emeraldstay.com/properties" class="color-primary">
+        PROPERTIES
+      </a>
+    </li>
+    <li>
+      <a href="https://emeraldstay.com/properties" class="color-primary"></a>
+    </li>
+    <li>
+      <a href="https://emeraldstay.com/lease-your-property" class="color-primary">
+        HOMEOWNERS
+      </a>
+    </li>
+    <li>
+      <a href="https://emeraldstay.com/infinity-edition" class="color-primary">
+        INFINITY EDITION
+      </a>
+    </li>
+    <li>
+      <a href="https://emeraldstay.com/about-us" class="color-primary">
+        ABOUT US
+      </a>
+    </li>
+  </ul>
+</p-sidebar>

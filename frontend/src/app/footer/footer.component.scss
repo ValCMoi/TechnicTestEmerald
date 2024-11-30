@@ -44,6 +44,13 @@ footer {
   transform: translateX(-50%);
   align-items: center;
   font-size: 1.5rem;
+  transition-duration: 0.3s;
+  cursor: pointer;
+}
+
+i:hover{
+  color: var(--primary);
+  transition-duration: 0.3s;
 }
 
 @media screen and (max-width: 650px) {
