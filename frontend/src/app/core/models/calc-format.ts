@@ -23,7 +23,7 @@ export interface CalcAllNetEfficiencyFormat {
   purchasePrice: number;
 }
 
-export interface YearResult{
-  year:number;
-  result:number;
+export interface YearResult {
+  year: number;
+  result: number;
 }

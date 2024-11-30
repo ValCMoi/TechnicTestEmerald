@@ -5,14 +5,12 @@ import { FooterService } from '../core/services/footer/footer.service';
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.scss']
+  styleUrls: ['./footer.component.scss'],
 })
 export class FooterComponent {
+  footerLinks: GroupLink[];
 
-  footerLinks:GroupLink[];
-
-  constructor(private readonly footerService:FooterService){
+  constructor(private readonly footerService: FooterService) {
     this.footerLinks = this.footerService.getFooterGroupLink();
   }
-
 }

@@ -1,5 +1,11 @@
 import { Injectable } from '@angular/core';
-import { CalcAllNetEfficiencyFormat, CalcNetEfficiencyFormat, CalcNetMensualIncomeAllFormat, CalcNetMensualIncomeFormat, YearResult } from 'src/app/core/models/calc-format';
+import {
+  CalcAllNetEfficiencyFormat,
+  CalcNetEfficiencyFormat,
+  CalcNetMensualIncomeAllFormat,
+  CalcNetMensualIncomeFormat,
+  YearResult,
+} from 'src/app/core/models/calc-format';
 
 @Injectable({
   providedIn: 'root',
@@ -14,48 +20,51 @@ export class CalcIncomeService {
   }
 
   calcNetEfficiencyOneYear(calcInput: CalcNetEfficiencyFormat): number {
-    return(
-      100 * ((12 * this.calcNetMensualIncome(calcInput))/calcInput.purchasePrice)
-    )
+    return (
+      100 *
+      ((12 * this.calcNetMensualIncome(calcInput)) / calcInput.purchasePrice)
+    );
   }
 
-  calcNetMensualIncomeAll(calcInput: CalcNetMensualIncomeAllFormat): YearResult[]{
+  calcNetMensualIncomeAll(
+    calcInput: CalcNetMensualIncomeAllFormat
+  ): YearResult[] {
     let res: YearResult[] = [];
     let idxYear = 0;
-    calcInput.agencyCommissions.forEach(commission => {
-      const bodyCalcOfOneYear:CalcNetMensualIncomeFormat = {
+    calcInput.agencyCommissions.forEach((commission) => {
+      const bodyCalcOfOneYear: CalcNetMensualIncomeFormat = {
         monthlyRent: calcInput.monthlyRent,
         monthlyRentalFee: calcInput.monthlyRentalFee,
-        agencyCommission:commission
-      }
+        agencyCommission: commission,
+      };
       res.push({
-        year:idxYear,
-        result: this.calcNetMensualIncome(bodyCalcOfOneYear)
-      })
+        year: idxYear,
+        result: this.calcNetMensualIncome(bodyCalcOfOneYear),
+      });
 
-      idxYear++
-    })
+      idxYear++;
+    });
 
     return res;
   }
 
-  calcAllNetEfficiency(calcInput :CalcAllNetEfficiencyFormat):YearResult[]{
+  calcAllNetEfficiency(calcInput: CalcAllNetEfficiencyFormat): YearResult[] {
     let res: YearResult[] = [];
     let idxYear = 0;
-    calcInput.agencyCommissions.forEach(commission => {
-      const bodyCalcOfOneYear:CalcNetEfficiencyFormat = {
-        purchasePrice:calcInput.purchasePrice,
+    calcInput.agencyCommissions.forEach((commission) => {
+      const bodyCalcOfOneYear: CalcNetEfficiencyFormat = {
+        purchasePrice: calcInput.purchasePrice,
         monthlyRent: calcInput.monthlyRent,
         monthlyRentalFee: calcInput.monthlyRentalFee,
-        agencyCommission:commission
-      }
+        agencyCommission: commission,
+      };
       res.push({
-        year:idxYear,
-        result: this.calcNetEfficiencyOneYear(bodyCalcOfOneYear)
-      })
+        year: idxYear,
+        result: this.calcNetEfficiencyOneYear(bodyCalcOfOneYear),
+      });
 
-      idxYear++
-    })
+      idxYear++;
+    });
 
     return res;
   }

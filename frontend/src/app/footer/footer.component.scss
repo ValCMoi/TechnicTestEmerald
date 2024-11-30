@@ -34,7 +34,7 @@ footer {
   height: min-content;
 }
 
-.social{
+.social {
   display: flex;
   margin: auto;
   justify-content: center;
@@ -48,13 +48,12 @@ footer {
   cursor: pointer;
 }
 
-i:hover{
+i:hover {
   color: var(--primary);
   transition-duration: 0.3s;
 }
 
 @media screen and (max-width: 650px) {
-
   .logoFooter {
     margin: auto;
   }
@@ -63,16 +62,16 @@ i:hover{
     grid-template-columns: auto;
   }
 
-  .listGroup{
+  .listGroup {
     display: grid;
   }
 
-  .containerLink{
+  .containerLink {
     padding: 2rem;
     text-align: center;
   }
 
-  .social{
+  .social {
     position: absolute;
     bottom: 0%;
   }
